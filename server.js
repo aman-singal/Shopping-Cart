@@ -9,7 +9,7 @@ const hbs = require('hbs')
 const path = require('path');
 const update = require('./models/update_ex').updateID
 let cookieArr = [];
-
+const PORT = process.env.PORT || 5555
 
 
 hbs.registerPartials(path.join(__dirname, '/views/partials'))
@@ -122,7 +122,7 @@ app.get('/' ,async (req,res)=>{
 
 
 db.sync().then(()=>{
-    app.listen(1200, ()=>{
+    app.listen(PORT, ()=>{
         console.log("Server Up and Running http://localhost:1200/")
     })
 })
